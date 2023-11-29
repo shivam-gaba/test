@@ -1,0 +1,427 @@
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta charset="utf-8">
+            <link rel="icon" type="image/png" sizes="32x32" href="{pageThumbnailImageUrl}">
+            <style>
+              @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@100;400&display=swap');
+              body {
+                margin : 0px
+              }
+              section {
+                align-items: center;
+                background-position: center;
+                background-size: cover;
+                display: flex;
+                height : 100vh;
+                justify-content: center;
+                width: 100%;
+              }
+              .panel {
+                align-items: center;
+                background: snow;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 30px 30px 5px 30px;
+                width: 310px;
+                text-align: center;
+                margin:0 20px 0 20px;
+              }
+              .logo {
+                max-height: 50px;
+                max-width: 250px;
+              }
+              h1 {
+                font-family: Raleway,"Open Sans",sans-serif;
+              }
+              p {
+                font-family : "Open Sans",sans-serif;
+                min-height: 50px;
+              }
+              button {
+                margin: 30px 0 10px 0;
+                background-color:#367b88;
+                border-radius:4px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.16),0 3px 4px rgba(0,0,0,0.16),0 1px 5px rgba(0,0,0,0.16);
+                border: 0 none;
+                color: #fff;
+                height : 34px;
+                padding: 0 20px;
+                text-transform : uppercase;
+                font-weight : bold;
+                cursor:pointer;
+              }
+              button:hover {
+                background-color: #57c5d9;
+              }
+              footer {
+                font-family: "Open Sans",sans-serif;
+                font-size:11px;
+                align-self: flex-end;
+                margin-top: 30px;
+                text-align: center;
+              }
+              .agreements {
+                margin-top: 10px;
+              }
+              .checkbox {
+                display: inline-block;
+                margin-right: 5px;
+                vertical-align: middle;
+              }
+              span {
+                font-family : "Open Sans",sans-serif;
+                text-align : center;
+                color : #262626;
+                vertical-align:middle;
+              }
+              a {
+                font-family : "Open Sans",sans-serif;
+                cursor:pointer;
+                color: #367b88;
+              }
+              a:hover {
+                color: #359db0;
+              }
+              .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                overflow: auto;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.4);
+                padding: 100px 0 0 0;
+              }
+              .close {
+                font-size: 28px;
+                font-weight: bold;
+              }
+              .close:hover {
+                cursor: pointer;
+              }
+              .modal-content {
+                background-color: #fefefe;
+                margin: auto;
+                width: 60%;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 12px;
+                box-shadow : 0 6px 10px rgba(0,0,0,0.16),0 3px 5px rgba(0,0,0,0.2),0 1px 12px rgba(0,0,0,0.18);
+                max-width:600px;
+              }
+              .modal-header {
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #d4d4d4; 
+                padding: 20px;          
+              }
+              .modal-header-title {
+                font-size: 1.25rem;
+                font-family: "Open Sans",sans-serif;
+              }
+              .modal-body {
+                max-height: 300px;
+                padding: 20px;
+                overflow-y: auto;
+                word-wrap: break-word;
+                font-size: 1rem;
+                font-family: "Open Sans",sans-serif;
+              }
+              .btn:disabled {
+                border: 0 none;
+                background-color: #d4d4d4;
+                color: #999;
+                box-shadow: none;
+              }
+              .form-group {
+                margin-bottom: 15px;
+              }
+              .form-control {
+                height: 34px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.42857143;
+                color: #555;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+              }
+              .normal-label {
+                color: #606060;
+                margin: 10px 0 0 0;
+                font-size: 11px;
+                font-family: "Open Sans",sans-serif;
+                font-weight: 400; 
+                line-height: 16px; 
+                display: flex;
+                text-align: flex-start;
+              }
+              .required-label {
+                color: #606060;
+                margin: 10px 0 0 0;
+                font-size: 11px;
+                font-family: "Open Sans",sans-serif;
+                font-weight: 400; 
+                line-height: 16px;
+                display: flex;
+                text-align: flex-start;
+              }
+              .required-label::after {
+                content: " *";
+                color: red;
+                padding-left: 3px;
+              }
+              .date-input {
+                width: 86.8%;
+                -webkit-appearance: none;
+                appearance: none;
+              }
+              .invalid-field {
+                border: 1px solid red;
+              }
+            </style>
+      </head>
+      <body>
+          <div class="modal">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="modal-header-title"></div>
+                  <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">      
+                  
+                <div class="terms-body">
+                    abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {}abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS 
+                </div>
+            
+                <div class="privacy-body">
+                    yu
+                </div>
+            
+                </div>
+              </div>
+          </div>
+          <section style="background-image: url('{backgroundImageUrl}');">
+            <div class="panel">
+              <img class="logo" src="{smallImageUrl}">
+                <h1>hackerone12</h1>
+              <p>hackerone1</p>
+              
+                <div class="form-group">
+                    
+                        <label class="required-label">Phone Number</label>
+                        <input type="text" id="field1" class="form-control required-field " oninput="updateButtonState()" placeholder="Phone Number" required>
+                    
+                        <label class="normal-label">Email Address</label>
+                        <input type="text" id= field2 class="form-control " oninput="updateButtonState()" placeholder="Email Address">
+                    
+                        <label class="required-label">Date</label>
+                        <input type="date" id="field3" class="form-control required-field date-input" oninput="updateButtonState()" placeholder="Date" required>
+                    
+                </div>
+            
+              <button onclick="handleConnect()" type="button" class="btn btn-primary">
+                Bingo
+              </button>
+              
+                <div class="agreements">
+                    
+                <span class="checkbox">
+                    <input id="enforce-input" autocomplete="off" type="checkbox" onclick="updateButtonState()"/>
+                </span>
+            
+                    <span id="terms_and_privacy"></span>
+                </div>
+            
+              <footer>
+                Copyright @ 1996-2022 WatchGuard Technologies, Inc. All Rights Reserved.
+              </footer>
+            </div>
+          </section>
+             <script>
+                const modal = document.querySelector('.modal')
+                const close = document.querySelector('.close')
+                const modalHeaderTitle = document.querySelector('.modal-header-title')
+                const termsBody = document.querySelector('.terms-body')
+                const privacyBody = document.querySelector('.privacy-body')
+                const enforceInput = document.querySelector('#enforce-input')
+                const connectButton = document.querySelector('.btn')
+                const termsAndPrivacyElement = document.querySelector('#terms_and_privacy')
+                const termsElement = document.querySelector('#terms')
+                const privacyElement = document.querySelector('#privacy')
+                const translation = getTranslation();
+                const inputFields = document.querySelectorAll(".form-control");
+                const requiredFields = document.querySelectorAll(".required-field");
+                
+                updateButtonState();
+                
+                function handleConnect() {
+                  decision_url = "https://www.google.com";
+                  formData = [{'type': 'Phone', 'label': 'Phone Number', 'required': true}, {'type': 'Email', 'label': 'Email Address', 'required': false}, {'type': 'Date', 'label': 'Date', 'required': true}];
+
+                  if (formData) {
+                    let field1 = document.getElementById("field1")?.value;
+                    let field2 = document.getElementById("field2")?.value;
+                    let field3 = document.getElementById("field3")?.value;
+                    let isInputValid = validateInput();
+
+                    if (!connectButton.disabled && isInputValid) {
+                      window.location = "https://www.google.com" + 
+                                        (field1 !== undefined ? ("&formdata=field1:" + btoa(formData[0].type.toLowerCase() + ":" + field1)) : "") + 
+                                        (field2 !== undefined ? (",field2:" + btoa(formData[1].type.toLowerCase() + ":" + field2)) : "") +
+                                        (field3 !== undefined ? (",field3:" + btoa(formData[2].type.toLowerCase() + ":" + field3)) : "");
+                    }
+                  } else {
+                    window.location = "https://www.google.com";
+                  }
+                }
+
+                function getTranslation() {
+                  let language = navigator.language;
+                  const supportedLanguages = ['en', 'es', 'es-es', 'ja', 'de', 'fr']
+
+                  if (!supportedLanguages.includes(language)) {
+                    language = 'en'
+                  }
+
+                  const translations = {
+                    'en' : {
+                        "terms_text": "I agree to the <a onclick=\"splashShowTermsOfUse()\">Terms of Use</a>",
+                        "privacy_text": "I have reviewed the <a onclick=\"splashShowPrivacyPolicy()\">Privacy Policy</a>",
+                        "terms_and_privacy_text": "I agree to the <a onclick=\"splashShowTermsOfUse()\">Terms of Use</a> and have reviewed the <a onclick=\"splashShowPrivacyPolicy()\">Privacy Policy</a>",
+                        "terms_of_use_lbl": "Terms of Use",
+                        "privacy_policy_lbl": "Privacy Policy"
+                    },
+                    'de' : {
+                      "terms_text": "Ich stimme den <a onclick=\"splashShowTermsOfUse()\">Nutzungsbedingungen</a> zu",
+                      "privacy_text": "Ich habe die <a onclick=\"splashShowPrivacyPolicy()\">Datenschutzbestimmungen</a> gelesen",
+                      "terms_and_privacy_text": "Ich stimme den <a onclick=\"splashShowTermsOfUse()\">Nutzungsbedingungen</a> zu und habe die <a onclick=\"splashShowPrivacyPolicy()\">Datenschutzbestimmungen</a> gelesen",
+                      "terms_of_use_lbl": "Nutzungsbedingungen",
+                      "privacy_policy_lbl": "Datenschutzbestimmungen"
+                    },
+                    'es-es' : {
+                      "terms_text": "Acepto los <a onclick=\"splashShowTermsOfUse()\">Términos de Uso</a>",
+                      "privacy_text": "He revisado la <a onclick=\"splashShowPrivacyPolicy()\">Política de Privacidad</a>",
+                      "terms_and_privacy_text": "Acepto los <a onclick=\"splashShowTermsOfUse()\">Términos de Uso</a> y he revisado la <a onclick=\"splashShowPrivacyPolicy()\">Política de Privacidad</a>",
+                      "terms_of_use_lbl": "Términos de Uso",
+                      "privacy_policy_lbl": "Política de Privacidad"
+                    },
+                    'es' : {
+                      "terms_text": "Acepto los <a onclick=\"splashShowTermsOfUse()\">Términos de Uso</a>",
+                      "privacy_text": "He leído la <a onclick=\"splashShowPrivacyPolicy()\">Privacy Policy</a>",
+                      "terms_and_privacy_text": "Acepto los <a onclick=\"splashShowTermsOfUse()\">Términos de Uso</a> y he leído la <a onclick=\"splashShowPrivacyPolicy()\">Privacy Policy</a>",
+                      "terms_of_use_lbl": "Términos de Uso",
+                      "privacy_policy_lbl": "Política de Privacidad"
+                    },
+                    'fr' : {
+                      "terms_text": "J'accepte les <a onclick=\"splashShowTermsOfUse()\">Conditions d'Utilisation</a>",
+                      "privacy_text": "J'ai examiné la <a onclick=\"splashShowPrivacyPolicy()\">Politique de Confidentialité</a>",
+                      "terms_and_privacy_text": "J'accepte les <a onclick=\"splashShowTermsOfUse()\">Conditions d'Utilisation</a> et j'ai lu la <a onclick=\"splashShowPrivacyPolicy()\">Politique de Confidentialité</a>",
+                      "terms_of_use_lbl": "Conditions d'Utilisation",
+                      "privacy_policy_lbl": "Politique de Confidentialité"
+                    },
+                    'ja' : {
+                      "terms_text": "<a onclick=\"splashShowTermsOfUse()\">利用規約</a> に同意します",
+                      "privacy_text": "<a onclick=\"splashShowPrivacyPolicy()\">プライバシー ポリシー</a> を確認しました",
+                      "terms_and_privacy_text": "<a onclick=\"splashShowTermsOfUse()\">利用規約</a> に同意し、<a onclick=\"splashShowPrivacyPolicy()\">プライバシー ポリシー</a> を確認しました",
+                      "terms_of_use_lbl": "利用規約",
+                      "privacy_policy_lbl": "プライバシー ポリシー"
+                    }
+                  };
+                  
+                  return translations[language];
+                }
+
+                function validateInput() {
+                  const validations = {
+                    'phone': {
+                      'regex': /(?:\+\d{2}\s\d{10,16}|\(\d{3}\)\s\d{10,16}|\d{8,16})/,
+                      'length': 16
+                    },
+                    'name': {
+                      'length': 64
+                    },
+                    'email': {
+                      'regex': /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      'length': 64
+                    },
+                    'default': {
+                      'length': 64
+                    }
+                  }
+
+                  let isValid = true;
+
+                  inputFields.forEach(function (field, index) {
+                    validation = validations[formData[index].type.toLowerCase()] || validations.default;
+
+                    if (field.value && ((validation.regex && !validation.regex.test(field.value)) || (field.value.length > validation.length))) {
+                      field.classList.add('invalid-field');
+                      isValid = false;
+                    }
+                  });
+
+                  return isValid;
+                }
+
+                function updateButtonState() {
+                  inputFields.forEach(field => {
+                    field.classList.remove('invalid-field');
+                  });  
+
+                  const isEnforceInputEnabled = !enforceInput || (enforceInput && enforceInput.checked);
+                  let areRequiredFieldsFilled = true;
+
+                  requiredFields.forEach(function(field) {
+                    if (!field.value) {
+                      areRequiredFieldsFilled = false;
+                    }
+                  });
+
+                  connectButton.disabled = !areRequiredFieldsFilled || !isEnforceInputEnabled;
+                }
+                
+                (function () {
+                  if (termsAndPrivacyElement) {
+                    termsAndPrivacyElement.innerHTML = translation['terms_and_privacy_text'];
+                  } else if (termsElement) {
+                    termsElement.innerHTML = translation['terms_text'];
+                  } else if (privacyElement) {
+                    privacyElement.innerHTML = translation['privacy_text'];
+                  }
+                })();
+        
+                function splashShowTermsOfUse() {
+                  modal.style.display  = "block "
+                  termsBody.style.display = "block"
+                  if(privacyBody)  privacyBody.style.display = "none"
+                  modalHeaderTitle.textContent = translation["terms_of_use_lbl"]
+                }
+        
+                function splashShowPrivacyPolicy() {
+                  modal.style.display  = "block "
+                  if(termsBody) termsBody.style.display = "none"
+                  privacyBody.style.display = "block"
+                  modalHeaderTitle.textContent = translation["privacy_policy_lbl"]
+                }
+        
+                close.onclick = ()=> {
+                  modal.style.display = "none"
+                }
+        
+                window.onclick = (event)=> {
+                  if(event.target === modal){
+                    modal.style.display = "none"
+                  }
+                }
+          </script>
+      </body>
+    </html>
+    
