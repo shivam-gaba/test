@@ -201,11 +201,11 @@
                 <div class="modal-body">      
                   
                 <div class="terms-body">
-                    abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @`´ ©«» ¤¼× {}abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS 
+                    Test
                 </div>
             
                 <div class="privacy-body">
-                    yu
+                    Test
                 </div>
             
                 </div>
@@ -222,11 +222,11 @@
                         <label class="required-label">Phone Number</label>
                         <input type="text" id="field1" class="form-control required-field " oninput="updateButtonState()" placeholder="Phone Number" required>
                     
-                        <label class="normal-label">Email Address</label>
-                        <input type="text" id= field2 class="form-control " oninput="updateButtonState()" placeholder="Email Address">
-                    
                         <label class="required-label">Date</label>
-                        <input type="date" id="field3" class="form-control required-field date-input" oninput="updateButtonState()" placeholder="Date" required>
+                        <input type="date" id="field2" class="form-control required-field date-input" oninput="updateButtonState()" placeholder="Date" required>
+                    
+                        <label class="required-label">Test</label>
+                        <input type="text" id="field3" class="form-control required-field " oninput="updateButtonState()" placeholder="Test" required>
                     
                 </div>
             
@@ -236,10 +236,6 @@
               
                 <div class="agreements">
                     
-                <span class="checkbox">
-                    <input id="enforce-input" autocomplete="off" type="checkbox" onclick="updateButtonState()"/>
-                </span>
-            
                     <span id="terms_and_privacy"></span>
                 </div>
             
@@ -267,7 +263,7 @@
                 
                 function handleConnect() {
                   decision_url = "https://www.google.com";
-                  formData = [{'type': 'Phone', 'label': 'Phone Number', 'required': true}, {'type': 'Email', 'label': 'Email Address', 'required': false}, {'type': 'Date', 'label': 'Date', 'required': true}];
+                  formData = [{'type': 'Phone', 'label': 'Phone Number', 'required': true}, {'type': 'Date', 'label': 'Date', 'required': true}, {'type': 'Custom', 'label': 'Test', 'required': true}];
 
                   if (formData) {
                     let field1 = document.getElementById("field1")?.value;
@@ -277,9 +273,9 @@
 
                     if (!connectButton.disabled && isInputValid) {
                       window.location = "https://www.google.com" + 
-                                        (field1 !== undefined ? ("&formdata=field1:" + btoa(formData[0].type.toLowerCase() + ":" + field1)) : "") + 
-                                        (field2 !== undefined ? (",field2:" + btoa(formData[1].type.toLowerCase() + ":" + field2)) : "") +
-                                        (field3 !== undefined ? (",field3:" + btoa(formData[2].type.toLowerCase() + ":" + field3)) : "");
+                                        (field1 !== undefined ? ("&formdata=field1:" + btoa(formData[0].label + ":" + field1)) : "") + 
+                                        (field2 !== undefined ? (",field2:" + btoa(formData[1].label + ":" + field2)) : "") +
+                                        (field3 !== undefined ? (",field3:" + btoa(formData[2].label + ":" + field3)) : "");
                     }
                   } else {
                     window.location = "https://www.google.com";
@@ -345,7 +341,7 @@
                 function validateInput() {
                   const validations = {
                     'phone': {
-                      'regex': /(?:\+\d{2}\s\d{10,16}|\(\d{3}\)\s\d{10,16}|\d{8,16})/,
+                      'regex': /(?:\+\d{2}\s*\d{10,16}|\d{7,16}|\(\d{3}\)\s*\d{10,16})/,
                       'length': 16
                     },
                     'name': {
@@ -358,7 +354,7 @@
                     'default': {
                       'length': 64
                     }
-                  }
+                  };
 
                   let isValid = true;
 
@@ -383,9 +379,9 @@
                   let areRequiredFieldsFilled = true;
 
                   requiredFields.forEach(function(field) {
-                    if (!field.value) {
-                      areRequiredFieldsFilled = false;
-                    }
+                      if (!field.value) {
+                        areRequiredFieldsFilled = false;
+                      }
                   });
 
                   connectButton.disabled = !areRequiredFieldsFilled || !isEnforceInputEnabled;
